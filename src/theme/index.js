@@ -8,6 +8,9 @@ import React, { useMemo } from "react";
 import { LIGHT } from "../config";
 import breakpoints from "./breakpoints";
 import palette from "./palette";
+import typography from "./typography";
+import shadows, { customShadows } from "./shadows";
+import ComponentsOverrides from "./overrides";
 
 
 const ThemeProvider = ({ children }) => {
@@ -30,7 +33,7 @@ const ThemeProvider = ({ children }) => {
 
   const theme = createTheme(themeOptions);
 
-  theme.components = componentOverride(theme);
+  theme.components = ComponentsOverrides(theme);
 
   return (
     <StyledEngineProvider injectFirst>
