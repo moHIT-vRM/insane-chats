@@ -4,7 +4,11 @@ const GeneralApp = () => {
 
   return (
     <>
-      App
+      <br/>
+
+      <button>
+        Hello
+      </button>
     </>
   );
 };
