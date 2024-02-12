@@ -11,7 +11,7 @@ import palette from "./palette";
 import typography from "./typography";
 import shadows, { customShadows } from "./shadows";
 import ComponentsOverrides from "./overrides";
-
+import useSettings from "../hooks/useSettings";
 
 const ThemeProvider = ({ children }) => {
   const { themeMode, themeDirection } = useSettings();
