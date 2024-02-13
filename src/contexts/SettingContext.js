@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import defaultSettings from "./config";
 import useLocalStorage from "../hooks/useLocalStorage";
 import {
   BOLD,
@@ -10,8 +9,13 @@ import {
   LIGHT,
   RIGHT_TO_LEFT,
   VERTICAL,
+  defaultSettings
 } from "../config";
-import { colorPresets, defaultPreset, getColorPresets } from "../utils/getColorPresets";
+import {
+  colorPresets,
+  defaultPreset,
+  getColorPresets,
+} from "../utils/getColorPresets";
 
 const initialState = {
   ...defaultSettings,
@@ -47,7 +51,7 @@ const initialState = {
 
 const SettingsContext = createContext(initialState);
 
-const SettingsProviders = ({ children }) => {
+const SettingsProvider = ({ children }) => {
   const [settings, setSettings] = useLocalStorage("settings", {
     themeMode: initialState.themeMode,
     themeLayout: initialState.themeLayout,
@@ -122,7 +126,6 @@ const SettingsProviders = ({ children }) => {
       themeContrast: settings.themeContrast === DEFAULT ? BOLD : DEFAULT,
     });
   };
-
   const onChangeContrast = (event) => {
     setSettings({
       ...settings,
@@ -148,6 +151,8 @@ const SettingsProviders = ({ children }) => {
     });
   };
 
+  // Reset
+
   const onResetSetting = () => {
     setSettings({
       themeMode: initialState.themeMode,
@@ -159,36 +164,46 @@ const SettingsProviders = ({ children }) => {
     });
   };
 
-  // Reset
-
   return (
-    <SettingsProviders.Provider
+    <SettingsContext.Provider
       value={{
-        ...settings,
+        ...settings, // Mode
         onToggleMode,
         onChangeMode,
+
+        // Direction
         onToggleDirection,
         onChangeDirection,
         onChangeDirectionByLang,
-        onToggleContrast,
-        onChangeContrast,
+
+        // Layout
         onToggleLayout,
         onChangeLayout,
-        onChangeColor,
+
+        // Contrast
+        onChangeContrast,
+        onToggleContrast,
+
+        // Stretch
         onToggleStretch,
-        onResetSetting,
+
+        // Color
+        onChangeColor,
         setColor: getColorPresets(settings.themeColorPresets),
         colorOption: colorPresets.map((color) => ({
           name: color.name,
           value: color.main,
         })),
+
+        // Reset
+        onResetSetting,
       }}
     >
       {children}
-    </SettingsProviders.Provider>
+    </SettingsContext.Provider>
   );
 };
 
 export { SettingsContext };
 
-export default SettingsProviders;
+export default SettingsProvider;
