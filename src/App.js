@@ -1,12 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
 import Router from "./routes";
+import ThemeProvider from "./theme";
 
 function App() {
-  console.log('check')
   return (
-    <BrowserRouter>
-   <Router/>
-    </BrowserRouter>
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
   );
 }
 

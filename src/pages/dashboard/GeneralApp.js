@@ -1,14 +1,9 @@
 import React from "react";
 
 const GeneralApp = () => {
-
   return (
     <>
-      <br/>
-
-      <button>
-        Hello
-      </button>
+      APp compoentnet
     </>
   );
 };

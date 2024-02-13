@@ -1,9 +1,13 @@
+import PropTypes from "prop-types";
+// @mui
+import { CssBaseline } from "@mui/material";
 import {
-  StyledEngineProvider,
-  ThemeProvider as MUIThemeProvider,
-  CssBaseline,
   createTheme,
-} from "@mui/material";
+  ThemeProvider as MUIThemeProvider,
+  StyledEngineProvider,
+} from "@mui/material/styles";
+
+
 import React, { useMemo } from "react";
 import { LIGHT } from "../config";
 import breakpoints from "./breakpoints";
@@ -38,10 +42,15 @@ const ThemeProvider = ({ children }) => {
   return (
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>
-        <CssBaseline /> {children}
+        <CssBaseline />
+        {children}
       </MUIThemeProvider>
     </StyledEngineProvider>
   );
+};
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node,
 };
 
 export default ThemeProvider;
