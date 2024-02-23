@@ -39,7 +39,8 @@ import { Fab,
   Autocomplete ,
   ToggleButton ,
   ControlLabel ,
-  LoadingButton , } from "./overrides";
+  LoadingButton, 
+  TextField, } from "./overrides";
 
 
 // ----------------------------------------------------------------------
@@ -87,6 +88,7 @@ export default function ComponentsOverrides(theme) {
     Autocomplete(theme),
     ControlLabel(theme),
     ToggleButton(theme),
-    LoadingButton(theme)
+    LoadingButton(theme),
+    TextField(theme)
   );
 }

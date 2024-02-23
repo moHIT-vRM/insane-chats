@@ -33,7 +33,7 @@ const IOSSwitch = styled((props) => (
     "&.Mui-disabled .MuiSwitch-thumb": {
       color:
         theme.palette.mode === LIGHT
-          ? theme.palette.grey[100]
+          ? theme.palette.grey[500]
           : theme.palette.grey[600],
     },
     "&.Mui-disabled + .MuiSwitch-track": {
@@ -49,7 +49,7 @@ const IOSSwitch = styled((props) => (
     borderRadius: 26 / 2,
     backgroundColor:
       theme.palette.mode === LIGHT
-        ? theme.palette.grey[200]
+        ? theme.palette.grey[500]
         : theme.palette.grey[700],
     opacity: 1,
     transition: theme.transitions.create(["background-color"], {

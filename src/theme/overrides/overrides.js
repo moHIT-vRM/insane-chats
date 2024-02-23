@@ -462,40 +462,40 @@ const CssBaseline = () => {
   return {
     MuiCssBaseline: {
       styleOverrides: {
-        '*': {
+        "*": {
           margin: 0,
           padding: 0,
-          boxSizing: 'border-box',
+          boxSizing: "border-box",
         },
         html: {
-          width: '100%',
-          height: '100%',
-          WebkitOverflowScrolling: 'touch',
+          width: "100%",
+          height: "100%",
+          WebkitOverflowScrolling: "touch",
         },
         body: {
-          width: '100%',
-          height: '100%',
+          width: "100%",
+          height: "100%",
         },
-        '#root': {
-          width: '100%',
-          height: '100%',
+        "#root": {
+          width: "100%",
+          height: "100%",
         },
         input: {
-          '&[type=number]': {
-            MozAppearance: 'textfield',
-            '&::-webkit-outer-spin-button': {
+          "&[type=number]": {
+            MozAppearance: "textfield",
+            "&::-webkit-outer-spin-button": {
               margin: 0,
-              WebkitAppearance: 'none',
+              WebkitAppearance: "none",
             },
-            '&::-webkit-inner-spin-button': {
+            "&::-webkit-inner-spin-button": {
               margin: 0,
-              WebkitAppearance: 'none',
+              WebkitAppearance: "none",
             },
           },
         },
         img: {
-          display: 'block',
-          maxWidth: '100%',
+          display: "block",
+          maxWidth: "100%",
         },
       },
     },
@@ -1083,7 +1083,7 @@ const SvgIcon = () => {
 };
 
 const Switch = (theme) => {
-  const isLight = theme.palette.mode === "light";
+  const isLight = theme.palette.mode === LIGHT;
 
   return {
     MuiSwitch: {
@@ -1235,6 +1235,24 @@ const Tabs = (theme) => {
       styleOverrides: {
         root: {
           padding: 0,
+        },
+      },
+    },
+  };
+};
+
+const TextField = (theme) => {
+  return {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiInputBase-input": {
+            paddingTop: "12px",
+            paddingBottom: "12px",
+          },
+          '& .MuiInputAdornment-root.MuiInputAdornment-positionStart:not(.MuiInputAdornment-hiddenLabel)':{
+            marginTop: '0px !important'
+          }
         },
       },
     },
@@ -1418,4 +1436,5 @@ export {
   Tooltip,
   TreeView,
   Typography,
+  TextField
 };
