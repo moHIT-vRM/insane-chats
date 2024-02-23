@@ -51,7 +51,9 @@ const ERROR = {
 
 const GREY = {
   0: "#FFFFFF",
+  50:'#F8FAFF',
   100: "#F9FAFB",
+  150: "#676767",
   200: "#F4F6F8",
   300: "#DFE3E8",
   400: "#C4CDD5",
