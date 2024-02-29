@@ -18,12 +18,12 @@ import {
 import React, { useState } from "react";
 import { Message_options } from "../../data";
 
-const MsgLayout = ({ el, children }) => {
+const MsgLayout = ({ el, menu, children }) => {
   const theme = useTheme();
   return (
     <Stack
       flexDirection={"row"}
-      alignItems={'start'}
+      alignItems={"start"}
       justifyContent={el?.incoming ? "flex-start" : "flex-end"}
     >
       <Stack
@@ -38,15 +38,15 @@ const MsgLayout = ({ el, children }) => {
       >
         {children}{" "}
       </Stack>
-      <MessageOptions />
+      {menu && <MessageOptions />}
     </Stack>
   );
 };
 
-const DocMsg = ({ el }) => {
+const DocMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el}>
+    <MsgLayout el={el} menu={menu}>
       <Stack spacing={2}>
         <Stack
           padding={1}
@@ -77,10 +77,10 @@ const DocMsg = ({ el }) => {
   );
 };
 
-const LinkMsg = ({ el }) => {
+const LinkMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el}>
+    <MsgLayout el={el} menu={menu}>
       <Stack spacing={2}>
         <Stack
           p={2}
@@ -122,10 +122,10 @@ const LinkMsg = ({ el }) => {
   );
 };
 
-const ReplyMsg = ({ el }) => {
+const ReplyMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el}>
+    <MsgLayout el={el} menu={menu}>
       <Stack spacing={2}>
         <Stack
           p={2}
@@ -150,10 +150,10 @@ const ReplyMsg = ({ el }) => {
   );
 };
 
-const MediaMsg = ({ el }) => {
+const MediaMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el}>
+    <MsgLayout el={el} menu={menu}>
       <Stack spacing={1}>
         <Box
           component="img"
@@ -173,10 +173,10 @@ const MediaMsg = ({ el }) => {
   );
 };
 
-const TextMsg = ({ el }) => {
+const TextMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el}>
+    <MsgLayout el={el} menu={menu}>
       <Typography
         variant="body2"
         color={el.incoming ? theme.palette.text : theme.palette.common.white}

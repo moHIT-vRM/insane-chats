@@ -58,13 +58,14 @@ const IOSSwitch = styled((props) => (
   },
 }));
 
-export const CustomizedSwitches = ({ onChangeFunction, labelStyle }) => {
+export const CustomizedSwitches = ({ onChangeFunction, labelStyle = "" }) => {
   return (
     <FormGroup>
       <FormControlLabel
-        control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-        label={labelStyle.label}
-        labelPlacement={labelStyle.position}
+        control={<IOSSwitch sx={{ m: '8px 0px' }} defaultChecked />}
+        label={labelStyle.label ?? ""}
+        labelPlacement={labelStyle.position ?? "top"}
+        disableRipple
         onChange={onChangeFunction}
       />
     </FormGroup>

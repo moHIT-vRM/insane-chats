@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Button,
   Divider,
   IconButton,
   List,
@@ -15,8 +16,12 @@ import { StyledBadge } from "../Custom/StyledBadge";
 import { faker } from "@faker-js/faker";
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from "phosphor-react";
 
+import { ToggleSideBar } from "../../redux/slices/app";
+import { useDispatch } from "react-redux";
+
 const ChatHeader = () => {
   const theme = useTheme();
+  const dispatch = useDispatch();
   return (
     <Stack
       height={80}
@@ -44,10 +49,7 @@ const ChatHeader = () => {
       >
         <ListItem
           secondaryAction={
-            <Stack
-              gap={2}
-              flexDirection={"row"}
-            >
+            <Stack gap={2} flexDirection={"row"}>
               <IconButton>
                 <VideoCamera />
               </IconButton>
@@ -64,19 +66,22 @@ const ChatHeader = () => {
             </Stack>
           }
         >
-          <ListItemAvatar>
-            {true ? (
-              <StyledBadge
-                overlap="circular"
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                variant="dot"
-              >
+          <IconButton disableTouchRipple sx={{padding: 0}} onClick={() => dispatch(ToggleSideBar())}>
+            <ListItemAvatar  >
+              {true ? (
+                <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                  variant="dot"
+                >
+                  <Avatar src={faker.image.avatar()} />
+                </StyledBadge>
+              ) : (
                 <Avatar src={faker.image.avatar()} />
-              </StyledBadge>
-            ) : (
-              <Avatar src={faker.image.avatar()} />
-            )}
-          </ListItemAvatar>
+              )}
+            </ListItemAvatar>
+            </IconButton>
+         
           <ListItemText
             primary={"qwerty"}
             primaryTypographyProps={{ variant: "body2" }}

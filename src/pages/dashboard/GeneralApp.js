@@ -1,27 +1,53 @@
 import { Box, Stack, useTheme } from "@mui/material";
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import Chat from "./Chat";
 import Conversation from "../../components/Conversation";
-import { LIGHT } from "../../config";
+import { LIGHT, PanelType } from "../../config";
 import Contact from "../../components/Contact";
+import { useSelector } from "react-redux";
+import SharedMessages from "../../components/SharedMessages";
+import StarredMessages from "../../components/StarredMessages";
 
 const GeneralApp = () => {
   const theme = useTheme();
+  const { sideBar } = useSelector((store) => store.app);
+
+  const handleTabPanel = useCallback(() => {
+    switch (sideBar.type) {
+      case PanelType.CONTACT:
+        return <Contact />;
+      case PanelType.STARRED:
+        return <StarredMessages />;
+      case PanelType.SHARED:
+        return <SharedMessages />;
+      default:
+        break;
+    }
+  }, [sideBar.type]);
+
   return (
-    <Stack flexDirection={"row"} width={"100%"}>
+    <Stack
+      flexDirection={"row"}
+      width={"100%"}
+      // sx={{border:"2px solid red"}}
+    >
       {/* Chat Section */}
       <Chat />
       <Stack
         height={"100%"}
-        // width={"calc(100vw-740px)"}
-        // sx={{width :'calc(100vw-740px)' , height:"100%"}} 
-        width={"100%"}    
-        backgroundColor={theme.palette.mode=== LIGHT? '#F0F4FA': theme.palette.background.paper}   
+        // width={sideBar ? "calc(100vw-740px)" : "calc(100vw- 420px"}
+        // sx={{width :'calc(100%-740px)' , height:"100%"}}
+        width={"100%"}
+        backgroundColor={
+          theme.palette.mode === LIGHT
+            ? "#F0F4FA"
+            : theme.palette.background.paper
+        }
       >
         {/* Conversation Section */}
         <Conversation />
       </Stack>
-      <Contact/>
+      {sideBar.open && handleTabPanel()}
     </Stack>
   );
 };
