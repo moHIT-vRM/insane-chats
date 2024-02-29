@@ -9,22 +9,31 @@ export const DARK = "dark";
 export const LIGHTER = "lighter";
 export const DARKER = "darker";
 
+export const RIGHT_TO_LEFT = "rtl";
+export const LEFT_TO_RIGHT = "ltr";
 
-export const RIGHT_TO_LEFT= 'rtl'
-export const LEFT_TO_RIGHT= 'ltr'
+export const HORIZONTAL = "horizontal";
+export const VERTICAL = "vertical";
 
-export const HORIZONTAL= 'horizontal'
-export const VERTICAL= 'vertical'
+export const DEFAULT = "default";
+export const BOLD = "bold";
 
-
-export const DEFAULT="default"
-export const BOLD="bold"
+export const PanelType = {
+  CONTACT: "CONTACT",
+  SHARED: "SHARED",
+  STARRED: "STARRED",
+};
 
 export const defaultSettings = {
-    themeMode: LIGHT,
-    themeDirection: LEFT_TO_RIGHT,
-    themeContrast: DEFAULT,
-    themeLayout: HORIZONTAL,
-    themeColorPresets: DEFAULT,
-    themeStretch: false,
-  };
+  themeMode: LIGHT,
+  themeDirection: LEFT_TO_RIGHT,
+  themeContrast: DEFAULT,
+  themeLayout: HORIZONTAL,
+  themeColorPresets: DEFAULT,
+  themeStretch: false,
+};
+
+export const DialogType = {
+  Block: "block",
+  Delete: "delete",
+};

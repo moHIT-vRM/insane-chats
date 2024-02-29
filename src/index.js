@@ -4,15 +4,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import SettingsProvider from "./contexts/SettingContext";
 import { BrowserRouter } from "react-router-dom";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <SettingsProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </SettingsProvider>
+    <ReduxProvider store={store}>
+      <SettingsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </SettingsProvider>
+    </ReduxProvider>
   </React.StrictMode>
 );
 
