@@ -12,8 +12,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React, { useCallback, useState } from "react";
-import { DialogType, LIGHT, PanelType } from "../config";
+import React, { useState } from "react";
+import { LIGHT, PanelType } from "../config";
 import {
   Bell,
   CaretRight,
@@ -31,13 +31,7 @@ import { faker } from "@faker-js/faker";
 import { CustomizedSwitches } from "./Custom/StyledSwtich";
 import ConfirmDialog from "./Custom/ConfirmDialog";
 
-const initialState = {
-  open: false,
-  title: "",
-  subTitle: "",
-  handleClose: () => {},
-  handleConfirm: () => {},
-};
+
 const Contact = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
