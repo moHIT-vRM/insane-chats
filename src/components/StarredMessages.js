@@ -1,22 +1,11 @@
-import {
-  Box,
-  IconButton,
-  Stack,
-  Tab,
-  Typography,
-  useTheme,
-  Tabs,
-  Grid,
-} from "@mui/material";
-import React, { useCallback, useState } from "react";
+import { IconButton, Stack, Typography, useTheme } from "@mui/material";
+import React from "react";
 import { LIGHT, PanelType } from "../config";
 import { useDispatch } from "react-redux";
 import { CaretLeft } from "phosphor-react";
-import { ToggleSideBar, UpdateSidebar } from "../redux/slices/app";
-import { faker } from "@faker-js/faker";
-import { SHARED_DOCS, SHARED_LINKS } from "../data";
-import { DocMsg, LinkMsg } from "./Conversation/MsgTypes";
+import { UpdateSidebar } from "../redux/slices/app";
 import Messages from "./Conversation/Messages";
+import ScrollerStack from "./Custom/ScrollerStack";
 
 const StarredMessages = () => {
   const theme = useTheme();
@@ -52,16 +41,9 @@ const StarredMessages = () => {
         </Stack>
         {/* Body */}
 
-        <Stack
-          height={"100%"}
-          position={"relative"}
-          flexGrow={1}
-          overflowY={"scroll"}
-          p={2}
-          spacing={3}
-        >
+        <ScrollerStack p={2} spacing={3} flexGrow={1} height={"100%"}>
           <Messages />
-        </Stack>
+        </ScrollerStack>
       </Stack>
     </Stack>
   );

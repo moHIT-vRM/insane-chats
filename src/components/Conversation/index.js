@@ -3,6 +3,7 @@ import React from "react";
 import ChatHeader from "./ChatHeader";
 import ChatFooter from "./ChatFooter";
 import Messages from "./Messages";
+import ScrollerStack from "../Custom/ScrollerStack";
 
 const Conversation = () => {
   return (
@@ -11,19 +12,10 @@ const Conversation = () => {
       <ChatHeader />
 
       {/* Conversation section */}
-      <Stack
-        flexGrow={1}
-        width={"100%"}
-        height={"100%"}
-        sx={{
-          overflowY: "scroll",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
+      <ScrollerStack flexGrow={1} width={"100%"} height={"100%"}>
         <Messages menu={true} />
-      </Stack>
+      </ScrollerStack>
+
       {/* Chat Footer */}
       <ChatFooter />
     </Stack>

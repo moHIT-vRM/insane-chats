@@ -21,12 +21,14 @@ import { faker } from "@faker-js/faker";
 import logo from "../../assets/Images/logo.ico";
 import useSettings from "../../hooks/useSettings";
 import { LIGHT } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const SwitchLabel = { label: "Mode" };
 const SwitchPosition = { position: "top" };
 
 const SideBar = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const [selected, setSelected] = useState(0);
 
@@ -112,7 +114,10 @@ const SideBar = () => {
             </Stack>
           ) : (
             <IconButton
-              onClick={() => setSelected(3)}
+              onClick={() => {
+                setSelected(3);
+                navigate("/settings");
+              }}
               width={"max-content"}
               sx={{
                 color:
@@ -149,12 +154,12 @@ const SideBar = () => {
               "aria-labelledby": "basic-button",
             }}
             anchorOrigin={{
-              vertical:"bottom",
-              horizontal:"right"
+              vertical: "bottom",
+              horizontal: "right",
             }}
             transformOrigin={{
-              vertical:"bottom",
-              horizontal:"left"
+              vertical: "bottom",
+              horizontal: "left",
             }}
           >
             <Stack>
