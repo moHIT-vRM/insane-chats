@@ -17,6 +17,7 @@ const Loadable = (Component) => (props) => {
   );
 };
 const Router = () => {
+
   return useRoutes([
     {
       path: "/auth",
@@ -59,6 +60,7 @@ const Router = () => {
 };
 
 export default Router;
+
 
 const GeneralApp = Loadable(
   lazy(() => import("../pages/dashboard/GeneralApp"))
