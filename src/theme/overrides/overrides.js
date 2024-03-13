@@ -346,7 +346,7 @@ const Card = (theme) => {
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(3),
+          padding: theme.spacing(2, 3, 2, 3),
         },
       },
     },
@@ -1244,15 +1244,22 @@ const Tabs = (theme) => {
 const TextField = (theme) => {
   return {
     MuiTextField: {
+      variants: [
+        {
+          props: { variant: "filled" },
+          style: {
+            "& .MuiInputBase-input": {
+              paddingTop: "12px",
+            },
+          },
+        },
+      ],
       styleOverrides: {
         root: {
-          "& .MuiInputBase-input": {
-            paddingTop: "12px",
-            paddingBottom: "12px",
-          },
-          '& .MuiInputAdornment-root.MuiInputAdornment-positionStart:not(.MuiInputAdornment-hiddenLabel)':{
-            marginTop: '0px !important'
-          }
+          "& .MuiInputAdornment-root.MuiInputAdornment-positionStart:not(.MuiInputAdornment-hiddenLabel)":
+            {
+              marginTop: "0px !important",
+            },
         },
       },
     },
@@ -1436,5 +1443,5 @@ export {
   Tooltip,
   TreeView,
   Typography,
-  TextField
+  TextField,
 };

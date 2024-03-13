@@ -26,18 +26,13 @@ const GeneralApp = () => {
   }, [sideBar.type]);
 
   return (
-    <Stack
-      flexDirection={"row"}
-      width={"100%"}
-      // sx={{border:"2px solid red"}}
-    >
+    <Stack flexDirection={"row"} width={"100%"}>
       {/* Chat Section */}
       <Chat />
       <Stack
         height={"100%"}
-        // width={sideBar ? "calc(100vw-740px)" : "calc(100vw- 420px"}
-        // sx={{width :'calc(100%-740px)' , height:"100%"}}
-        width={"100%"}
+        // width={sideBar.open ? "calc( 100vw - 740px )" : "calc( 100vw - 180px )"}
+        width={'100%'}
         backgroundColor={
           theme.palette.mode === LIGHT
             ? "#F0F4FA"

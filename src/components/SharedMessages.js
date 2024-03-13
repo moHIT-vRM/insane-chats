@@ -12,10 +12,11 @@ import React, { useCallback, useState } from "react";
 import { LIGHT, PanelType } from "../config";
 import { useDispatch } from "react-redux";
 import { CaretLeft } from "phosphor-react";
-import { ToggleSideBar, UpdateSidebar } from "../redux/slices/app";
+import { UpdateSidebar } from "../redux/slices/app";
 import { faker } from "@faker-js/faker";
 import { SHARED_DOCS, SHARED_LINKS } from "../data";
 import { DocMsg, LinkMsg } from "./Conversation/MsgTypes";
+import ScrollerStack from "./Custom/ScrollerStack";
 
 const SharedMessages = () => {
   const theme = useTheme();
@@ -88,21 +89,14 @@ const SharedMessages = () => {
         </Tabs>
         {/* Body */}
 
-        <Stack
-          position={"relative"}
-          flexGrow={1}
-          sx={{
-            height: "100%",
-            overflowY: "scroll",
-            "::-webkit-scrollbar": {
-              display: "none",
-            },
-          }}
+        <ScrollerStack
           p={2}
           spacing={value === 1 ? 1 : 3}
+          flexGrow={1}
+          height={"100%"}
         >
           {handleMediaChange()}
-        </Stack>
+        </ScrollerStack>
       </Stack>
     </Stack>
   );

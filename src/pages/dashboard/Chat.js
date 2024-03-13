@@ -26,6 +26,7 @@ import { ChatList } from "../../data";
 import { LIGHT } from "../../config";
 import { faker } from "@faker-js/faker";
 import { SimpleBarStyle } from "../../components/Scrollbar";
+import ScrollerStack from "../../components/Custom/ScrollerStack";
 
 const ChatElement = ({ img, name, msg, time, unread, pinned, online }) => {
   const theme = useTheme();
@@ -68,7 +69,11 @@ const ChatElement = ({ img, name, msg, time, unread, pinned, online }) => {
             <Avatar src={faker.image.avatar()} />
           )}
         </ListItemAvatar>
-        <ListItemText primary={name} primaryTypographyProps={{variant:"body2"}} secondary={msg} />
+        <ListItemText
+          primary={name}
+          primaryTypographyProps={{ variant: "body2" }}
+          secondary={msg}
+        />
       </ListItem>
     </List>
   );
@@ -95,7 +100,7 @@ const Chat = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Typography>Chats</Typography>
+        <Typography variant="h4">Chats</Typography>
         <IconButton>
           <CircleDashed />
         </IconButton>
@@ -104,7 +109,7 @@ const Chat = () => {
         id="search"
         placeholder="Search"
         InputProps={{
-          disableUnderline:true,
+          disableUnderline: true,
           startAdornment: (
             <InputAdornment position="start">
               <MagnifyingGlass size={16} />
@@ -127,17 +132,11 @@ const Chat = () => {
         Archived{" "}
       </Button>
       <Divider width={"100%"} />
-      <Stack
+      <ScrollerStack
         height={"100%"}
         flexGrow={1}
         spacing={1.5}
         flexDirection={"column"}
-        sx={{
-          overflowY: "scroll",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
       >
         <SimpleBarStyle timeout={500} clickOnTrack={false}>
           <Typography
@@ -166,7 +165,7 @@ const Chat = () => {
             ))}
           </Stack>
         </SimpleBarStyle>
-      </Stack>
+      </ScrollerStack>
     </Stack>
   );
 };
