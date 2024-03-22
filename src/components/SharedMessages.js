@@ -32,9 +32,9 @@ const SharedMessages = () => {
     switch (value) {
       case 0:
         return (
-          <Grid container spacing={2}>
+          <Grid container gap={1.5}>
             {[0, 1, 2, 3, 4, 5, 6].map((el, index) => (
-              <Grid item xs={4} key={index}>
+              <Grid item xs={3.5} key={index} border={'2px solid'} >
                 <Box
                   component={"img"}
                   alt={faker.name.fullName()}
@@ -55,7 +55,7 @@ const SharedMessages = () => {
   }, [value]);
 
   return (
-    <Stack width={320} height={"100vh"}>
+    <Stack width={320} height={"100vh"} >
       <Stack height={"100%"}>
         {/* header */}
         <Stack
@@ -93,7 +93,7 @@ const SharedMessages = () => {
           p={2}
           spacing={value === 1 ? 1 : 3}
           flexGrow={1}
-          height={"100%"}
+          height={"100%"} 
         >
           {handleMediaChange()}
         </ScrollerStack>

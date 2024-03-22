@@ -23,6 +23,7 @@ const MsgLayout = ({ el, menu, children }) => {
   return (
     <Stack
       flexDirection={"row"}
+    
       alignItems={"start"}
       justifyContent={el?.incoming ? "flex-start" : "flex-end"}
     >
@@ -46,12 +47,13 @@ const MsgLayout = ({ el, menu, children }) => {
 const DocMsg = ({ el, menu = false }) => {
   const theme = useTheme();
   return (
-    <MsgLayout el={el} menu={menu}>
-      <Stack spacing={2}>
+    <MsgLayout el={el} menu={menu} >
+      <Stack gap={1} >
         <Stack
           padding={1}
-          direction={"row"}
-          spacing={3}
+          width={'100%'}
+          flexDirection={"row"}
+          gap={4.5}
           alignItems={"center"}
           borderRadius={1}
           sx={{ backgroundColor: theme.palette.background.paper }}

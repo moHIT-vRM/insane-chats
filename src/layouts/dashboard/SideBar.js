@@ -1,16 +1,11 @@
 import {
   Avatar,
   Box,
-  Button,
   Divider,
   IconButton,
-  List,
-  ListItemIcon,
-  ListItemText,
   Menu,
   MenuItem,
   Stack,
-  Typography,
   useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -36,6 +31,7 @@ const SideBar = () => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -87,7 +83,10 @@ const SideBar = () => {
                 </Stack>
               ) : (
                 <IconButton
-                  onClick={() => setSelected(el.index)}
+                  onClick={() => {
+                    setSelected(el.index);
+                    navigate(el.link);
+                  }}
                   width={"max-content"}
                   key={el.index}
                   sx={{
@@ -164,7 +163,13 @@ const SideBar = () => {
           >
             <Stack>
               {Profile_Menu?.map((el, index) => (
-                <MenuItem onClick={handleClose} key={index}>
+                <MenuItem
+                  onClick={() => {
+                    handleClose();
+                    navigate(el.link);
+                  }}
+                  key={index}
+                >
                   <Stack
                     flexDirection={"row"}
                     justifyContent={"space-between"}

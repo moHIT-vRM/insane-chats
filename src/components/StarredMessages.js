@@ -12,7 +12,7 @@ const StarredMessages = () => {
   const dispatch = useDispatch();
 
   return (
-    <Stack width={320} height={"100vh"}>
+    <Stack width={320} height={"100vh"} >
       <Stack height={"100%"}>
         {/* header */}
         <Stack

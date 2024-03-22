@@ -31,7 +31,6 @@ import { faker } from "@faker-js/faker";
 import { CustomizedSwitches } from "./Custom/StyledSwtich";
 import ConfirmDialog from "./Custom/ConfirmDialog";
 
-
 const Contact = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -40,7 +39,7 @@ const Contact = () => {
 
   return (
     <>
-      <Stack width={420} height={"100vh"}>
+      <Stack height={"100vh"} width={320} >
         <Stack height={"100%"}>
           {/* header */}
           <Stack

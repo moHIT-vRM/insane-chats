@@ -1,14 +1,8 @@
 import {
-  Avatar,
-  Badge,
   Button,
   Divider,
   IconButton,
   InputAdornment,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   Stack,
   TextField,
   Typography,
@@ -21,63 +15,13 @@ import {
   MagnifyingGlass,
 } from "phosphor-react";
 import React from "react";
-import { StyledBadge } from "../../components/Custom/StyledBadge";
 import { ChatList } from "../../data";
 import { LIGHT } from "../../config";
-import { faker } from "@faker-js/faker";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import ScrollerStack from "../../components/Custom/ScrollerStack";
+import ChatElement from "../../components/ChatElement";
 
-const ChatElement = ({ img, name, msg, time, unread, pinned, online }) => {
-  const theme = useTheme();
-  return (
-    <List
-      width={"100%"}
-      disablePadding
-      sx={{
-        borderRadius: 1,
-        backgroundColor:
-          theme.palette.mode === LIGHT
-            ? theme.palette.common.white
-            : theme.palette.background.paper,
-      }}
-    >
-      <ListItem
-        secondaryAction={
-          <Stack
-            flexDirection={"column"}
-            alignItems={"center"}
-            justifyContent={"space-evenly"}
-            gap={1.6}
-            paddingBottom={"8px"}
-          >
-            <Typography variant="caption">{time}</Typography>
-            <Badge color="secondary" badgeContent={unread} variant="standard" />
-          </Stack>
-        }
-      >
-        <ListItemAvatar>
-          {online ? (
-            <StyledBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-            >
-              <Avatar src={faker.image.avatar()} />
-            </StyledBadge>
-          ) : (
-            <Avatar src={faker.image.avatar()} />
-          )}
-        </ListItemAvatar>
-        <ListItemText
-          primary={name}
-          primaryTypographyProps={{ variant: "body2" }}
-          secondary={msg}
-        />
-      </ListItem>
-    </List>
-  );
-};
+
 
 const Chat = () => {
   const theme = useTheme();
