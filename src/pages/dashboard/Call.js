@@ -9,16 +9,16 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { LIGHT } from "../../config";
-import { MagnifyingGlass, Plus } from "phosphor-react";
+import { MagnifyingGlass, Phone } from "phosphor-react";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import ScrollerStack from "../../components/Custom/ScrollerStack";
-import { ChatList } from "../../data";
-import ChatElement from "../../components/ChatElement";
-import CreateGroup from "../../sections/main/CreateGroup";
+import { CallLogs } from "../../data";
+import { CallLogElement } from "../../components/CallElement";
+import StartCall from "../../sections/main/StartCall";
 
-const Group = () => {
+const Call = () => {
   const theme = useTheme();
-  const [createGroupDialog, setCreateGroupDialog] = useState(false);
+  const [callingDialog, setCallingDialog] = useState(false);
   return (
     <>
       <Stack flexDirection={"row"} width={"100%"}>
@@ -34,7 +34,7 @@ const Group = () => {
           boxShadow={"0px 0px 2px rgba(0,0,0,0.25)"}
         >
           <Stack maxHeight={"100vh"} spacing={2} p={2}>
-            <Typography variant="h4">Groups</Typography>
+            <Typography variant="h4">Call Log</Typography>
             <TextField
               id="search"
               placeholder="Search"
@@ -48,13 +48,13 @@ const Group = () => {
               }}
             />
             <Button
-              endIcon={<Plus />}
+              endIcon={<Phone />}
               sx={{ justifyContent: "space-between" }}
               variant="text"
               color="primary"
-              onClick={() => setCreateGroupDialog(true)}
+              onClick={() => setCallingDialog(true)}
             >
-              Create new Group
+              Start a conversation
             </Button>
             <Divider width={"100%"} />
             <ScrollerStack
@@ -64,33 +64,12 @@ const Group = () => {
               flexDirection={"column"}
             >
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
-                <Stack spacing={1}>
-                  <Typography
-                    variant="subtitle2"
-                    color={theme.palette.grey[150]}
-                  >
-                    Pinned
-                  </Typography>
+                <Stack spacing={2}>
+                  {CallLogs?.map((el) => (
+                    <CallLogElement key={el.id} {...el} />
+                  ))}
+
                   {/* Chat List */}
-                  <Stack flexDirection={"column"} spacing={1.5}>
-                    {ChatList.filter((el) => el.pinned).map((el) => (
-                      <ChatElement key={el.id} {...el} />
-                    ))}
-                  </Stack>
-
-                  {/* Group List  */}
-
-                  <Typography
-                    variant="subtitle2"
-                    color={theme.palette.grey[150]}
-                  >
-                    All Group
-                  </Typography>
-                  <Stack flexDirection={"column"} spacing={1.5}>
-                    {ChatList.filter((el) => !el.pinned).map((el) => (
-                      <ChatElement key={el.id} {...el} />
-                    ))}
-                  </Stack>
                 </Stack>
               </SimpleBarStyle>
             </ScrollerStack>
@@ -99,14 +78,14 @@ const Group = () => {
         {/* Right Section */}
         <Stack></Stack>
       </Stack>
-      {createGroupDialog && (
-        <CreateGroup
-          open={createGroupDialog}
-          handleClose={() => setCreateGroupDialog(false)}
+      {callingDialog && (
+        <StartCall
+          open={callingDialog}
+          handleClose={() => setCallingDialog(false)}
         />
       )}
     </>
   );
 };
 
-export default Group;
+export default Call;

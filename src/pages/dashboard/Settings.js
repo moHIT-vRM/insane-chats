@@ -87,7 +87,7 @@ const Settings = () => {
         >
           <Stack direction={"row"} alignItems={"center"} spacing={6}>
             <IconButton onClick={() => navigate("/app")}>
-              <CaretLeft size={24} color={theme.palette.common.black} />
+              <CaretLeft size={24} />
             </IconButton>
             <Typography variant="h4"> Settings</Typography>
           </Stack>
@@ -122,7 +122,9 @@ const Settings = () => {
         </ScrollerStack>
 
         {/* Right Section */}
-        <Stack width={"calc( 100vw - 320px )"}>Right Area okay</Stack>
+        <Stack width={"calc( 90vw - 260px)"} >
+          Right Area okay
+        </Stack>
       </Stack>
       {themeDialog && (
         <ThemeDialog

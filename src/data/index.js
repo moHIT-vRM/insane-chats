@@ -13,14 +13,17 @@ const Profile_Menu = [
   {
     title: "Profile",
     icon: <User />,
+    link: "/profile",
   },
   {
     title: "Settings",
     icon: <Gear />,
+    link: "/settings",
   },
   {
     title: "Logout",
     icon: <SignOut />,
+    link: "/logout",
   },
 ];
 
@@ -28,14 +31,17 @@ const Nav_Buttons = [
   {
     index: 0,
     icon: <ChatCircleDots />,
+    link: "/app",
   },
   {
     index: 1,
     icon: <Users />,
+    link: "/group",
   },
   {
     index: 2,
     icon: <Phone />,
+    link: "/call",
   },
 ];
 
@@ -43,6 +49,83 @@ const Nav_Setting = [
   {
     index: 3,
     icon: <GearSix />,
+  },
+];
+
+const MemeberLists = [
+  {
+    id: 0,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: true,
+  },
+  {
+    id: 1,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: false,
+  },
+  {
+    id: 2,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: true,
+  },
+  {
+    id: 3,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: false,
+  },
+  {
+    id: 4,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: true,
+  },
+  {
+    id: 5,
+    name: faker.name.fullName(),
+    img: faker.image.avatar(),
+    online: false,
+  },
+];
+
+const CallLogs = [
+  {
+    id: 0,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    missed: true,
+    incoming: false,
+  },
+  {
+    id: 3,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    missed: true,
+    incoming: false,
+  },
+  {
+    id: 4,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    missed: true,
+    incoming: true,
   },
 ];
 
@@ -261,9 +344,9 @@ const SHARED_LINKS = [
     incoming: true,
     outgoing: false,
   },
-]
+];
 
-const SHARED_DOCS= [
+const SHARED_DOCS = [
   {
     type: "msg",
     subtype: "doc",
@@ -292,7 +375,21 @@ const SHARED_DOCS= [
     incoming: true,
     outgoing: false,
   },
-]
+  {
+    type: "msg",
+    subtype: "doc",
+    message: "Yes sure, here you go.",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "doc",
+    message: "Yes sure, here you go.",
+    incoming: true,
+    outgoing: false,
+  },
+];
 
 export {
   Profile_Menu,
@@ -302,5 +399,7 @@ export {
   Chat_History,
   Message_options,
   SHARED_DOCS,
-  SHARED_LINKS
+  SHARED_LINKS,
+  CallLogs,
+  MemeberLists,
 };
