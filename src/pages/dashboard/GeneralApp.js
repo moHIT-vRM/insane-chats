@@ -19,10 +19,6 @@ const GeneralApp = () => {
     switch (sideBar.type) {
       case PanelType.CONTACT:
         return <Contact />;
-        // return <Stack  >
-        //    <Button  onClick={() => dispatch(UpdateSidebar(PanelType.SHARED))}>tpp</Button>
-        //    <Button     onClick={() => dispatch(UpdateSidebar(PanelType.STARRED))}>fpp</Button>
-        // </Stack>;
       case PanelType.STARRED:
         return <StarredMessages />;
       case PanelType.SHARED:
